@@ -31,7 +31,7 @@ export function HowItWorks() {
             How it works
           </span>
           <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-            From seedbed to your shamba in 3 steps
+            From our seedbed to your seedbed in 3 steps
           </h2>
           <p className="mt-3 text-sm text-muted-foreground sm:text-base">
             A simple, guerrilla-style ordering flow built for local farmers: no
