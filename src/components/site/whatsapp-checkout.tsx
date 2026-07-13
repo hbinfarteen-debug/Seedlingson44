@@ -8,7 +8,7 @@ import { toast } from "sonner";
 import { WhatsAppIcon } from "./icons";
 
 /**
- * Floating WhatsApp checkout button — the "guerrilla" twist.
+ * Floating WhatsApp checkout button, the "guerrilla" twist.
  * Behaves like a native app FAB: fixed bottom-right, pulsing glow,
  * pill-shaped on desktop, circular on mobile, with a live count badge.
  */

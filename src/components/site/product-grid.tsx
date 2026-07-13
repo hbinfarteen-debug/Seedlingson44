@@ -33,7 +33,12 @@ export function ProductGrid({ products }: ProductGridProps) {
   const availableCount = products.filter(
     (p) => p.status === "available"
   ).length;
-  const preorderCount = products.length - availableCount;
+  const preorderCount = products.filter(
+    (p) => p.status === "preorder"
+  ).length;
+  const comingSoonCount = products.filter(
+    (p) => p.status === "coming-soon"
+  ).length;
 
   return (
     <section id="shop" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
@@ -49,11 +54,13 @@ export function ProductGrid({ products }: ProductGridProps) {
           </h2>
           <p className="mt-2 max-w-xl text-sm text-muted-foreground">
             {availableCount} ready to transplant now
-            {preorderCount > 0 && ` · ${preorderCount} available for pre-order`}.
-            Tap{" "}
-            <span className="font-medium text-leaf">Add to Cart</span> or{" "}
-            <span className="font-medium text-harvest">Pre-order</span> to build
-            your order.
+            {preorderCount > 0 && ` · ${preorderCount} available for pre-order`}
+            {comingSoonCount > 0 && ` · ${comingSoonCount} coming soon`}.
+            {availableCount > 0 && (
+              <> Tap{" "}
+              <span className="font-medium text-primary">Add to Cart</span> to build
+              your order.</>
+            )}
           </p>
         </div>
 
@@ -85,7 +92,7 @@ export function ProductGrid({ products }: ProductGridProps) {
                 "inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-sm font-medium transition-all",
                 activeCategory === cat.id
                   ? "border-primary bg-primary text-primary-foreground shadow-sm"
-                  : "border-border bg-background text-muted-foreground hover:border-primary/40 hover:bg-accent hover:text-accent-foreground"
+                  : "border-border bg-background text-muted-foreground hover:border-secondary/60 hover:bg-secondary/10 hover:text-secondary"
               )}
             >
               {cat.label}

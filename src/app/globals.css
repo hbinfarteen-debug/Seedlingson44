@@ -38,7 +38,6 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  /* Earthy brand palette */
   --color-leaf: var(--leaf);
   --color-leaf-foreground: var(--leaf-foreground);
   --color-harvest: var(--harvest);
@@ -55,92 +54,93 @@
 
 :root {
   --radius: 0.75rem;
-  /* Crisp warm white background */
+  /* Warm off-white background */
   --background: oklch(0.985 0.008 95);
-  /* Rich earth-brown text */
-  --foreground: oklch(0.28 0.02 55);
+  /* Dark charcoal text for body */
+  --foreground: oklch(0.18 0.01 50);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.28 0.02 55);
+  --card-foreground: oklch(0.18 0.01 50);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.28 0.02 55);
+  --popover-foreground: oklch(0.18 0.01 50);
   /* Deep forest green primary */
-  --primary: oklch(0.42 0.09 150);
+  --primary: oklch(0.35 0.10 150);
   --primary-foreground: oklch(0.98 0.02 95);
-  /* Warm soil brown secondary */
-  --secondary: oklch(0.52 0.07 55);
-  --secondary-foreground: oklch(0.98 0.02 95);
-  --muted: oklch(0.96 0.012 90);
+  /* Lime / chartreuse secondary — energetic accents */
+  --secondary: oklch(0.72 0.18 130);
+  --secondary-foreground: oklch(0.15 0.02 130);
+  --muted: oklch(0.96 0.008 90);
   --muted-foreground: oklch(0.50 0.02 60);
-  /* Light sage accent */
-  --accent: oklch(0.90 0.04 135);
-  --accent-foreground: oklch(0.34 0.07 150);
+  /* Lime-tinted sage accent */
+  --accent: oklch(0.88 0.08 130);
+  --accent-foreground: oklch(0.20 0.02 130);
   --destructive: oklch(0.55 0.20 27);
-  --border: oklch(0.90 0.015 80);
-  --input: oklch(0.90 0.015 80);
-  --ring: oklch(0.42 0.09 150);
+  /* Green-tinted border */
+  --border: oklch(0.85 0.02 130);
+  --input: oklch(0.85 0.02 130);
+  --ring: oklch(0.35 0.10 150);
   --chart-1: oklch(0.55 0.12 145);
-  --chart-2: oklch(0.60 0.10 70);
+  --chart-2: oklch(0.72 0.18 130);
   --chart-3: oklch(0.62 0.15 50);
   --chart-4: oklch(0.70 0.13 130);
   --chart-5: oklch(0.55 0.08 45);
   --sidebar: oklch(0.98 0.01 95);
-  --sidebar-foreground: oklch(0.28 0.02 55);
-  --sidebar-primary: oklch(0.42 0.09 150);
+  --sidebar-foreground: oklch(0.18 0.01 50);
+  --sidebar-primary: oklch(0.35 0.10 150);
   --sidebar-primary-foreground: oklch(0.98 0.02 95);
-  --sidebar-accent: oklch(0.90 0.04 135);
-  --sidebar-accent-foreground: oklch(0.34 0.07 150);
-  --sidebar-border: oklch(0.90 0.015 80);
-  --sidebar-ring: oklch(0.42 0.09 150);
+  --sidebar-accent: oklch(0.88 0.08 130);
+  --sidebar-accent-foreground: oklch(0.20 0.02 130);
+  --sidebar-border: oklch(0.85 0.02 130);
+  --sidebar-ring: oklch(0.35 0.10 150);
 
-  /* Brand palette — earthy */
-  --leaf: oklch(0.55 0.14 145);
+  /* Brand palette */
+  --leaf: oklch(0.38 0.10 150);
   --leaf-foreground: oklch(0.99 0.01 95);
   --harvest: oklch(0.70 0.16 65);
   --harvest-foreground: oklch(0.25 0.03 60);
-  --soil: oklch(0.50 0.06 50);
+  --soil: oklch(0.38 0.10 150);
   --soil-foreground: oklch(0.98 0.02 95);
   --cream: oklch(0.97 0.015 90);
   --sage: oklch(0.80 0.05 135);
 }
 
 .dark {
-  --background: oklch(0.22 0.015 55);
+  --background: oklch(0.18 0.01 50);
   --foreground: oklch(0.96 0.01 95);
-  --card: oklch(0.27 0.02 55);
+  --card: oklch(0.22 0.01 50);
   --card-foreground: oklch(0.96 0.01 95);
-  --popover: oklch(0.27 0.02 55);
+  --popover: oklch(0.22 0.01 50);
   --popover-foreground: oklch(0.96 0.01 95);
-  --primary: oklch(0.68 0.12 145);
-  --primary-foreground: oklch(0.20 0.02 55);
-  --secondary: oklch(0.45 0.06 55);
-  --secondary-foreground: oklch(0.96 0.01 95);
-  --muted: oklch(0.32 0.02 55);
+  --primary: oklch(0.65 0.12 145);
+  --primary-foreground: oklch(0.15 0.02 50);
+  --secondary: oklch(0.65 0.18 130);
+  --secondary-foreground: oklch(0.15 0.02 130);
+  --muted: oklch(0.26 0.01 50);
   --muted-foreground: oklch(0.72 0.02 80);
-  --accent: oklch(0.40 0.06 145);
-  --accent-foreground: oklch(0.90 0.04 135);
+  --accent: oklch(0.35 0.08 130);
+  --accent-foreground: oklch(0.88 0.08 130);
   --destructive: oklch(0.65 0.19 27);
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.68 0.12 145);
+  --ring: oklch(0.65 0.12 145);
   --chart-1: oklch(0.60 0.14 145);
   --chart-2: oklch(0.62 0.10 70);
   --chart-3: oklch(0.65 0.15 50);
   --chart-4: oklch(0.70 0.13 130);
   --chart-5: oklch(0.55 0.08 45);
-  --sidebar: oklch(0.25 0.02 55);
+  --sidebar: oklch(0.20 0.01 50);
   --sidebar-foreground: oklch(0.96 0.01 95);
-  --sidebar-primary: oklch(0.68 0.12 145);
-  --sidebar-primary-foreground: oklch(0.20 0.02 55);
-  --sidebar-accent: oklch(0.40 0.06 145);
-  --sidebar-accent-foreground: oklch(0.90 0.04 135);
+  --sidebar-primary: oklch(0.65 0.12 145);
+  --sidebar-primary-foreground: oklch(0.15 0.02 50);
+  --sidebar-accent: oklch(0.35 0.08 130);
+  --sidebar-accent-foreground: oklch(0.88 0.08 130);
   --sidebar-border: oklch(1 0 0 / 12%);
-  --sidebar-ring: oklch(0.68 0.12 145);
+  --sidebar-ring: oklch(0.65 0.12 145);
 
-  --leaf: oklch(0.68 0.14 145);
-  --leaf-foreground: oklch(0.20 0.02 55);
+  --leaf: oklch(0.65 0.12 145);
+  --leaf-foreground: oklch(0.15 0.02 50);
   --harvest: oklch(0.72 0.16 65);
   --harvest-foreground: oklch(0.25 0.03 60);
-  --soil: oklch(0.55 0.06 50);
+  --soil: oklch(0.65 0.12 145);
   --soil-foreground: oklch(0.96 0.01 95);
   --cream: oklch(0.30 0.02 55);
   --sage: oklch(0.45 0.05 135);
@@ -175,17 +175,17 @@
   background-color: oklch(0.70 0.08 135);
 }
 
-/* Subtle paper/linen texture using layered gradients (no external assets) */
+/* Subtle texture using layered gradients */
 .nursery-texture {
   background-image:
-    radial-gradient(circle at 20% 30%, oklch(0.55 0.14 145 / 0.05) 0px, transparent 40%),
-    radial-gradient(circle at 80% 70%, oklch(0.60 0.10 70 / 0.06) 0px, transparent 45%);
+    radial-gradient(circle at 20% 30%, oklch(0.35 0.10 150 / 0.04) 0px, transparent 40%),
+    radial-gradient(circle at 80% 70%, oklch(0.72 0.18 130 / 0.06) 0px, transparent 45%);
 }
 
-/* Floating WhatsApp checkout button — native-app style glow pulse */
+/* Floating WhatsApp checkout button glow pulse */
 @keyframes whatsapp-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 oklch(0.70 0.18 150 / 0.55), 0 10px 25px -5px oklch(0.40 0.18 150 / 0.45); }
-  50% { box-shadow: 0 0 0 14px oklch(0.70 0.18 150 / 0), 0 10px 25px -5px oklch(0.40 0.18 150 / 0.45); }
+  0%, 100% { box-shadow: 0 0 0 0 oklch(0.35 0.10 150 / 0.55), 0 10px 25px -5px oklch(0.35 0.10 150 / 0.45); }
+  50% { box-shadow: 0 0 0 14px oklch(0.35 0.10 150 / 0), 0 10px 25px -5px oklch(0.35 0.10 150 / 0.45); }
 }
 .animate-whatsapp-pulse {
   animation: whatsapp-pulse 2.4s ease-out infinite;

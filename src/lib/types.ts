@@ -5,7 +5,7 @@
  * swapped for a Google Sheets / API source later without touching the UI.
  */
 
-export type ProductStatus = "available" | "preorder";
+export type ProductStatus = "available" | "preorder" | "coming-soon";
 
 export type Sunlight = "Full Sun" | "Partial Shade" | "Shade";
 
@@ -26,10 +26,14 @@ export interface Product {
   /** How the item is sold, e.g. "Tray of 128" */
   unit: string;
   status: ProductStatus;
-  /** ISO date string for pre-order items — when stock will be ready */
+  /** Bulk pricing for larger quantities, e.g. $55 / 1000 seedlings */
+  bulkPrice?: number;
+  /** Bulk unit label, e.g. "1000 seedlings" */
+  bulkUnit?: string;
+  /** ISO date string for pre-order or coming-soon items */
   readyDate?: string;
   /** Local image path under /public */
-  image: string;
+  image?: string;
   description: string;
   sunlight: Sunlight;
   /** Approx days from transplant to harvest */
@@ -37,9 +41,13 @@ export interface Product {
   tags: string[];
 }
 
+export type Variant = "small" | "bulk";
+
 export interface CartItem {
   product: Product;
   quantity: number;
+  variant: Variant;
+  key: string;
 }
 
 export interface Category {

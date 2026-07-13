@@ -15,7 +15,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative isolate overflow-hidden bg-soil text-cream"
+      className="relative isolate overflow-hidden bg-primary text-primary-foreground"
     >
       {/* Background image */}
       <div className="absolute inset-0 -z-10">
@@ -27,25 +27,25 @@ export function Hero() {
           sizes="100vw"
           className="object-cover"
         />
-        {/* Earthy overlay for legibility */}
-        <div className="absolute inset-0 bg-gradient-to-r from-soil/90 via-soil/70 to-soil/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-soil/85 via-transparent to-soil/40" />
+        {/* Forest green overlay for legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-transparent to-primary/40" />
       </div>
 
       <div className="mx-auto flex max-w-6xl flex-col justify-center px-4 py-20 sm:px-6 sm:py-28 lg:py-36">
         <div className="max-w-2xl">
-          <span className="inline-flex items-center gap-2 rounded-full border border-cream/25 bg-cream/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.16em] text-cream backdrop-blur-sm">
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.16em] text-primary-foreground backdrop-blur-sm">
             <Leaf className="size-3.5" />
             {businessConfig.city}&apos;s Local Seedling Nursery
           </span>
 
-          <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.05] tracking-tight text-cream sm:text-5xl lg:text-6xl">
+          <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.05] tracking-tight text-primary-foreground sm:text-5xl lg:text-6xl">
             Local Growth
             <br />
             for Local Farmers
           </h1>
 
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-cream/85 sm:text-lg">
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-primary-foreground/85 sm:text-lg">
             Healthy, climate-ready vegetable seedlings raised in Bulawayo.
             Browse what&apos;s ready now, pre-order for the next season, and
             check out in one tap on WhatsApp.
@@ -55,9 +55,9 @@ export function Hero() {
             <Button
               asChild
               size="lg"
-              className="bg-leaf text-leaf-foreground shadow-md hover:bg-leaf/90"
+              className="bg-primary-foreground text-primary shadow-md hover:bg-primary-foreground/90"
             >
-              <a href="#shop">
+              <a href="/shop">
                 Browse Seedlings
                 <ArrowDown className="size-4" />
               </a>
@@ -66,7 +66,7 @@ export function Hero() {
               asChild
               size="lg"
               variant="outline"
-              className="border-cream/30 bg-cream/10 text-cream backdrop-blur-sm hover:bg-cream/20 hover:text-cream"
+              className="border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/20 hover:text-primary-foreground"
             >
               <a
                 href={buildWhatsAppUrl([])}
@@ -84,14 +84,14 @@ export function Hero() {
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="flex items-center gap-3 rounded-xl border border-cream/15 bg-cream/5 p-3 backdrop-blur-sm"
+                className="flex items-center gap-3 rounded-xl border border-primary-foreground/15 bg-primary-foreground/5 p-3 backdrop-blur-sm"
               >
-                <s.icon className="size-5 shrink-0 text-leaf" />
+                <s.icon className="size-5 shrink-0 text-secondary" />
                 <div className="leading-tight">
-                  <dt className="text-sm font-semibold text-cream">
+                  <dt className="text-sm font-semibold text-primary-foreground">
                     {s.label}
                   </dt>
-                  <dd className="text-xs text-cream/70">{s.sub}</dd>
+                  <dd className="text-xs text-primary-foreground/70">{s.sub}</dd>
                 </div>
               </div>
             ))}

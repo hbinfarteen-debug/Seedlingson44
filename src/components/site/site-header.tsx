@@ -5,13 +5,13 @@ import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/lib/cart-store";
 import { useMounted } from "@/hooks/use-mounted";
 import { businessConfig } from "@/lib/config";
-import { SproutIcon } from "./icons";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "#shop", label: "Seedlings" },
-  { href: "#how-it-works", label: "How it works" },
-  { href: "#contact", label: "Contact" },
+  { href: "/shop", label: "Seedlings" },
+  { href: "/#how-it-works", label: "How it works" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export function SiteHeader() {
@@ -24,18 +24,15 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/65">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
         {/* Brand */}
-        <a href="#top" className="group flex items-center gap-2.5">
-          <span className="flex size-9 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-sm transition-transform group-hover:scale-105">
-            <SproutIcon className="size-5" />
-          </span>
-          <span className="flex flex-col leading-none">
-            <span className="font-display text-base font-semibold tracking-tight text-foreground">
-              {businessConfig.name}
-            </span>
-            <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
-              {businessConfig.city} · {businessConfig.country}
-            </span>
-          </span>
+        <a href="/" className="group flex items-center gap-2.5">
+          <Image
+            src="/seedlings.png"
+            alt="Seedlings on 44"
+            width={170}
+            height={40}
+            className="h-14 w-auto object-contain"
+            priority
+          />
         </a>
 
         {/* Desktop nav */}
@@ -44,7 +41,7 @@ export function SiteHeader() {
             <a
               key={link.href}
               href={link.href}
-              className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+              className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary/10 hover:text-secondary"
             >
               {link.label}
             </a>

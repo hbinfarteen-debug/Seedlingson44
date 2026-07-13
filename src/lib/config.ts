@@ -3,20 +3,20 @@
  * Swap these values for the real nursery details when going live.
  */
 export const businessConfig = {
-  name: "Khanya Seedlings",
+  name: "Seedlings on 44",
   tagline: "Local Growth for Local Farmers",
   city: "Bulawayo",
   country: "Zimbabwe",
   /** WhatsApp / phone number in international format, no "+", spaces or dashes. */
-  whatsappNumber: "263771234567",
+  whatsappNumber: "263713647937",
   /** Email / location extras */
-  area: "Burnside, Bulawayo",
-  hours: "Mon–Sat · 7:00 AM – 5:00 PM",
+  area: "5 Aston Road, Donnington, Bulawayo",
+  hours: "Mon–Sat · 7:00 AM – 1:00 PM",
   currency: "USD",
   currencySymbol: "$",
   /** Delivery / pickup note shown at checkout */
   fulfillmentNote:
-    "Pickup in Burnside or arrange local delivery within Bulawayo. Payment on collection — cash or EcoCash.",
+    "Pickup at 5 Aston Road, Donnington or arrange local delivery within Bulawayo. Payment on collection: cash or EcoCash.",
 } as const;
 
 export type BusinessConfig = typeof businessConfig;

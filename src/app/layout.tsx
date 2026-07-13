@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Fraunces } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import { SiteHeader } from "@/components/site/site-header";
+import { SiteFooter } from "@/components/site/site-footer";
+import { CartDrawer } from "@/components/site/cart-drawer";
+import { WhatsAppCheckout } from "@/components/site/whatsapp-checkout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,23 +19,22 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Khanya Seedlings — Local Growth for Local Farmers | Bulawayo",
+  title: "Seedlings on 44: Local Growth for Local Farmers | Bulawayo",
   description:
-    "Bulawayo's trusted seedling nursery. Browse healthy, locally-grown vegetable seedlings and order via WhatsApp. Available now or pre-order for the next planting season.",
+    "Donnington, Bulawayo's trusted seedling nursery. Browse healthy, locally-grown vegetable seedlings and order via WhatsApp. Available now or pre-order for the next planting season.",
   keywords: [
     "seedlings Bulawayo",
-    "Zimbabwe nursery",
+    "Donnington nursery",
     "vegetable seedlings",
-    "tomato seedlings",
-    "cabbage seedlings",
+    "Seedlings on 44",
     "local farmers Zimbabwe",
     "WhatsApp order seedlings",
   ],
-  authors: [{ name: "Khanya Seedlings" }],
+  authors: [{ name: "Seedlings on 44" }],
   openGraph: {
-    title: "Khanya Seedlings — Local Growth for Local Farmers",
+    title: "Seedlings on 44: Local Growth for Local Farmers",
     description:
-      "Browse healthy, locally-grown vegetable seedlings in Bulawayo and order via WhatsApp.",
+      "Browse healthy, locally-grown vegetable seedlings in Donnington, Bulawayo and order via WhatsApp.",
     type: "website",
   },
 };
@@ -44,9 +47,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${fraunces.variable} antialiased bg-background text-foreground`}
+        className={`${geistSans.variable} ${fraunces.variable} antialiased flex min-h-screen flex-col bg-background text-foreground`}
       >
-        {children}
+        <SiteHeader />
+        <main className="flex-1">{children}</main>
+        <SiteFooter />
+        <CartDrawer />
+        <WhatsAppCheckout />
         <Toaster />
       </body>
     </html>

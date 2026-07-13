@@ -10,7 +10,7 @@ const steps = [
   {
     icon: ClipboardList,
     title: "2 · Review Your Order",
-    body: "Open the cart to adjust quantities and see your total. No account, no online payment — just a tidy order slip.",
+    body: "Open the cart to adjust quantities and see your total. No account, no online payment: just a tidy order slip.",
   },
   {
     icon: WhatsAppIcon,
@@ -23,7 +23,7 @@ export function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="nursery-texture border-y border-border/60 bg-cream/40"
+      className="nursery-texture border-y border-border/60 bg-muted"
     >
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
         <div className="mx-auto max-w-2xl text-center">
@@ -34,7 +34,7 @@ export function HowItWorks() {
             From seedbed to your shamba in 3 steps
           </h2>
           <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-            A simple, guerrilla-style ordering flow built for local farmers — no
+            A simple, guerrilla-style ordering flow built for local farmers: no
             apps to install, no accounts to create.
           </p>
         </div>

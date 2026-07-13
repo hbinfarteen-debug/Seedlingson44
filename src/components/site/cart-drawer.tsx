@@ -11,7 +11,6 @@ import {
   SheetFooter,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import { useCartStore } from "@/lib/cart-store";
 import { useMounted } from "@/hooks/use-mounted";
 import { formatPrice } from "@/lib/whatsapp";
@@ -19,6 +18,16 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { businessConfig } from "@/lib/config";
 import { WhatsAppIcon } from "./icons";
 import { toast } from "sonner";
+
+function itemPrice(item: ReturnType<typeof useCartStore.getState>["items"][number]): number {
+  return item.variant === "bulk" && item.product.bulkPrice != null
+    ? item.product.bulkPrice
+    : item.product.price;
+}
+
+function itemUnit(item: ReturnType<typeof useCartStore.getState>["items"][number]): string {
+  return item.variant === "bulk" ? item.product.bulkUnit ?? item.product.unit : item.product.unit;
+}
 
 export function CartDrawer() {
   const mounted = useMounted();
@@ -30,7 +39,7 @@ export function CartDrawer() {
   const clearCart = useCartStore((s) => s.clearCart);
 
   const subtotal = items.reduce(
-    (sum, i) => sum + i.product.price * i.quantity,
+    (sum, i) => sum + itemPrice(i) * i.quantity,
     0
   );
   const totalUnits = items.reduce((sum, i) => sum + i.quantity, 0);
@@ -44,7 +53,6 @@ export function CartDrawer() {
     });
   };
 
-  // Avoid hydration mismatch — render placeholder until mounted.
   const safeItems = mounted ? items : [];
   const safeSubtotal = mounted ? subtotal : 0;
   const safeUnits = mounted ? totalUnits : 0;
@@ -62,7 +70,7 @@ export function CartDrawer() {
           </SheetTitle>
           <SheetDescription>
             {safeUnits > 0
-              ? `${safeUnits} tray${safeUnits > 1 ? "s" : ""} ready to send`
+              ? `${safeUnits} item${safeUnits > 1 ? "s" : ""} ready to send`
               : "Your cart is empty"}
           </SheetDescription>
         </SheetHeader>
@@ -71,22 +79,23 @@ export function CartDrawer() {
           <EmptyCart onClose={closeCart} />
         ) : (
           <>
-            {/* Items */}
             <div className="nursery-scroll flex-1 overflow-y-auto px-3 py-3">
               <ul className="flex flex-col gap-2">
                 {safeItems.map((item) => (
                   <li
-                    key={item.product.id}
+                    key={item.key}
                     className="flex gap-3 rounded-xl border border-border/60 bg-card p-2.5"
                   >
                     <div className="relative size-16 shrink-0 overflow-hidden rounded-lg bg-muted">
-                      <Image
-                        src={item.product.image}
-                        alt={item.product.name}
-                        fill
-                        sizes="64px"
-                        className="object-cover"
-                      />
+                      {item.product.image && (
+                        <Image
+                          src={item.product.image}
+                          alt={item.product.name}
+                          fill
+                          sizes="64px"
+                          className="object-cover"
+                        />
+                      )}
                     </div>
                     <div className="flex min-w-0 flex-1 flex-col">
                       <div className="flex items-start justify-between gap-2">
@@ -95,11 +104,11 @@ export function CartDrawer() {
                             {item.product.name}
                           </p>
                           <p className="truncate text-xs text-muted-foreground">
-                            {item.product.variety} · {item.product.unit}
+                            {item.product.variety} &middot; {itemUnit(item)}
                           </p>
                         </div>
                         <button
-                          onClick={() => removeItem(item.product.id)}
+                          onClick={() => removeItem(item.key)}
                           className="rounded-md p-1 text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive"
                           aria-label={`Remove ${item.product.name}`}
                         >
@@ -110,14 +119,14 @@ export function CartDrawer() {
                         <QuantityStepper
                           quantity={item.quantity}
                           onDec={() =>
-                            setQuantity(item.product.id, item.quantity - 1)
+                            setQuantity(item.key, item.quantity - 1)
                           }
                           onInc={() =>
-                            setQuantity(item.product.id, item.quantity + 1)
+                            setQuantity(item.key, item.quantity + 1)
                           }
                         />
                         <p className="text-sm font-semibold text-foreground">
-                          {formatPrice(item.product.price * item.quantity)}
+                          {formatPrice(itemPrice(item) * item.quantity)}
                         </p>
                       </div>
                     </div>
@@ -127,7 +136,6 @@ export function CartDrawer() {
             </div>
 
             <SheetFooter className="border-t border-border/60 bg-background px-5 pt-4">
-              {/* Fulfillment note */}
               <div className="flex gap-2 rounded-lg bg-accent/50 p-3 text-xs leading-relaxed text-accent-foreground">
                 <Leaf className="mt-0.5 size-4 shrink-0" />
                 <p>{businessConfig.fulfillmentNote}</p>
@@ -157,7 +165,7 @@ export function CartDrawer() {
                   Clear cart
                 </button>
                 <span className="text-[11px] text-muted-foreground">
-                  No payment online · pay on collection
+                  No payment online &middot; pay on collection
                 </span>
               </div>
             </SheetFooter>
@@ -211,7 +219,7 @@ function EmptyCart({ onClose }: { onClose: () => void }) {
       </h3>
       <p className="mt-1.5 max-w-xs text-sm text-muted-foreground">
         Browse our seedlings and tap{" "}
-        <span className="font-medium text-leaf">Add to Cart</span> to start your
+        <span className="font-medium text-primary">Add to Cart</span> to start your
         order.
       </p>
       <Button onClick={onClose} className="mt-5 gap-2" variant="outline">
