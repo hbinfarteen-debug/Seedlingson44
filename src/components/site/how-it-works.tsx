@@ -30,7 +30,7 @@ export function HowItWorks() {
           <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
             How it works
           </span>
-          <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="mt-2 whitespace-nowrap font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
             From our seedbed to your seedbed in 3 steps
           </h2>
           <p className="mt-3 text-sm text-muted-foreground sm:text-base">
